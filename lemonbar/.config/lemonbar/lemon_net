@@ -1,0 +1,22 @@
+#! /usr/bin/env bash
+
+. panel_config
+
+nmtui="%{A:urxvt -e nmtui:}"
+ec="%{A}"
+
+while true; do
+	net_string="N${nmtui}"
+	eth=$(nmcli c show --active | grep "$eth_dev")
+	wif=$(nmcli c show --active | grep "$wifi_dev")
+	if [[ "$eth" != "" ]]; then
+		net_string+=" eth0"
+	elif [[ "$wif" != "" ]]; then
+		wifi=$(echo "$wif" | awk ' { print $1 } ')
+		net_string+=" ${wifi}"
+	else
+		net_string+=" no connection"
+	fi
+	echo -e "${net_string}${ec}  ${sep_right}"
+	sleep "${upd_net}"
+done

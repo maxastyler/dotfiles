@@ -1,0 +1,33 @@
+#! /usr/bin/env bash
+
+########################################
+#Battery script for lemonbar
+########################################
+
+. panel_config
+
+command_string="%{A4:light -A 2:}%{A5:light -U 2:}"
+end_command_string="%{A}%{A}"
+
+while true; do
+	level="$(cat /sys/class/power_supply/${bat_loc}/capacity)"
+	charging="$(cat /sys/class/power_supply/${bat_loc}/status)"
+	if [[ "$charging" == "Charging" ]]; then
+		bat_string=""	
+	else
+		if (( 85 < "$level" )); then
+			bat_string=""
+		elif (( 65 < "$level" <= 85 )); then
+			bat_string=""
+		elif (( 45 < "$level" <= 65 )); then
+			bat_string=""
+		elif (( 15 < "$level" <= 45 )); then
+			bat_string=""
+		else
+			bat_string=""
+		fi
+	fi
+		
+	echo -e "B${command_string}${level}% ${bat_string}${end_command_string}  ${sep_right}"
+	sleep "$upd_bat";
+done

@@ -1,0 +1,35 @@
+#/usr/bin/env bash
+
+. panel_config
+
+#while true; do
+#	current="$(mpc current)"
+#	if [ -z "$current" ]; then
+#		music="|no music playing"	
+#	else
+#		mus_state="$mpc"
+#		mus_state_a="$(mpc | awk ' FNR == 2 { print $1 } ')"
+#		if [ "$mus_state_a" == '[playing]' ]; then
+#			music="|$current -- $(mpc | awk 'FNR == 2 { print $3 }')"
+#		else
+#			music="|$current -- $(mpc | awk 'FNR == 2 { print $3 }')"
+#
+#		fi
+#	fi
+#	echo -e "M${music}${sep_right}"
+#	sleep "$upd_mpd"
+#done
+
+command_string="%{A:mpc toggle:}%{A3:urxvt -e ncmpcpp:}%{A2:mpc stop:}%{A4:mpc next:}%{A5:mpc prev:}"
+end_string="%{A}%{A}%{A}%{A}%{A}"
+
+while true; do
+	current="$(mpc current)"
+	if [ -z "$current" ]; then
+		music="%{A:mpc play:}%{A3:urxvt -e ncmpcpp:}no music%{A}%{A}"	
+	else
+		music="${command_string}${current}${end_string}"
+	fi
+	echo -e "M${music}  ${sep_right}"
+	sleep "$upd_mpd"
+done

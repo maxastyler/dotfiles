@@ -1,0 +1,105 @@
+#! /usr/bin/env bash
+#
+# Example panel for lemonbar
+
+. panel_config
+
+num_mon=$(bspc query -M | wc -l)
+
+while read -r line ; do
+	case $line in
+		S*)
+			# clock output
+			sys="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			;;
+		B*)
+			#Battery output
+			bat="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			;;
+		V*)
+			#Volume output
+			vol="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			;;
+		N*)
+			#Network output
+			net="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			;;
+		M*)
+			#mpd output
+			mpd="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			;;
+		T*)
+			# xtitle output
+			title="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			;;
+		W*)
+			# bspwm's state
+			wm=""
+			IFS=':'
+			set -- ${line#?}
+			while [ $# -gt 0 ] ; do
+				item=$1
+				name=${item#?}
+				case $item in
+					[mM]*)
+						[ $num_mon -lt 2 ] && shift && continue
+						case $item in
+							m*)
+								# monitor
+								FG=$color_fore
+								BG=$color_back
+								;;
+							M*)
+								# focused monitor
+								FG=$color_fore
+								BG=$color_back
+								;;
+						esac
+						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
+						;;
+					[fFoOuU]*)
+						case $item in
+							f*)
+								# free desktop
+								FG=$color_fore
+								BG=$color_back
+								;;
+							F*)
+								# focused free desktop
+								FG=$color_fore
+								BG=$color_wsp
+								;;
+							o*)
+								# occupied desktop
+								FG=$color_fore
+								BG=$color_back
+								;;
+							O*)
+								# focused occupied desktop
+								FG=$color_fore
+								BG=$color_wsp
+								;;
+							u*)
+								# urgent desktop
+								FG=$color_fore
+								BG=$color_back
+								;;
+							U*)
+								# focused urgent desktop
+								FG=$color_fore
+								BG=$color_wsp
+								;;
+						esac
+						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+						;;
+					[LTG]*)
+						# layout, state and flags
+						wm="${wm}%{F$color_fore}%{B$color_back} ${name} %{B-}%{F-}"
+						;;
+				esac
+				shift
+			done
+			;;
+	esac
+	printf "%s\n" "%{l}${wm}${sep_right}${title}%{c}%{r}${mpd}${vol}${bat}${net}${sys}"
+done

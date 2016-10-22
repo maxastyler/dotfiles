@@ -1,0 +1,36 @@
+#! /bin/sh
+##############################
+#When using this panel config with bspwm, /etc/profile needs to be edited to change some environment variables
+#These are:
+#export PATH=$PATH:/home/max/.config/lemonbar
+##############################
+. panel_config
+	if xdo id -a "$panel_name" > /dev/null ; then
+		printf "%s\n" "The panel is already running." >&2
+		exit 1
+	fi
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+[ -e "$panel_fifo" ] && rm "$panel_fifo"
+	mkfifo "$panel_fifo"
+
+bspc config top_padding $geometry
+bspc subscribe report > "$panel_fifo" &
+xtitle -sf 'T%s' > "$panel_fifo" &
+clock -sf 'S%a %H:%M' > "$panel_fifo" &
+lemon_battery > "$panel_fifo" &
+lemon_volume > "$panel_fifo" &
+lemon_mpd > "$panel_fifo" &
+lemon_net > "$panel_fifo" &
+
+panel_bar < "$panel_fifo" | lemonbar -a 32 -n "$panel_name" -g "x${geometry}" -f "${font}" -f "${iconfont}" -F "${color_fore}" -B "${color_back}" | sh &
+wid=$(xdo id -a "$panel_name")
+tries_left=20
+while [ -z "$wid" -a "$tries_left" -gt 0 ] ; do
+	sleep 0.05
+	wid=$(xdo id -a "$panel_name")
+	tries_left=$((tries_left - 1))
+done
+
+[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+wait
