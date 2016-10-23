@@ -67,6 +67,12 @@ syntax on
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
+
+""""""""""
+"Set relative line numbers, nice for jumping around
+""""""""""
+set relativenumber
+
 "Give ability to write to a protected file with w!! if you haven't started in
 "sudo mode
 cmap w!! w !sudo tee > /dev/null %
