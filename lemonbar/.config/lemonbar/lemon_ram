@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+. panel_config
+
+while true; do
+	mem=$(free | grep Mem | awk '{print (1-$7/$2) * 100.0}')
+	printf "R %i%%\n" "$mem"
+	sleep "$upd_ram"
+done

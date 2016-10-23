@@ -8,6 +8,14 @@ num_mon=$(bspc query -M | wc -l)
 
 while read -r line ; do
 	case $line in
+		C*)
+			#cpu output
+			cpu="%{B$c_0} ${line#?} %{B-}"
+			;;
+		R*)
+			#ram output
+			ram="%{B$c_0} ${line#?} %{B-}"
+			;;
 		S*)
 			# clock output
 			sys="%{F$c_f}%{B$c_10} ${line#?} %{B-}%{F-}"
@@ -101,5 +109,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{F${c_0}}%{B${c_1}}${sep_right}%{F}%{B}${title}%{F${c_1}}%{B${c_2}}${sep_right}%{F}%{B}%{c}%{r}%{F${c_5}}${sep_left}%{F}${mpd}${vol}%{F${c_2}}%{B${c_5}}${sep_left}%{B}%{F}${bat}%{F${c_10}}%{B${c_9}}${sep_left}%{F}%{B}${net}%{B${c_10}}${sep_l_left}%{B}${sys}"
+	printf "%s\n" "%{l}${wm}%{F${c_0}}%{B${c_1}}${sep_right}%{F}%{B}${title}%{F${c_1}}%{B${c_2}}${sep_right}%{F}%{B}%{c}%{r}%{F${c_5}}${sep_left}%{F}${mpd}${vol}%{F${c_0}}%{B${c_5}}${sep_left}%{B}%{F}${cpu}${ram}%{F${c_2}}%{B${c_0}}${sep_left}%{F}%{B}${bat}%{F${c_10}}%{B${c_9}}${sep_left}%{F}%{B}${net}%{B${c_10}}${sep_l_left}%{B}${sys}"
 done

@@ -23,6 +23,8 @@ upd_mail=300 # Mail check update
 upd_mpd=5 # MPD song update
 upd_bat=10
 upd_net=10
+upd_cpu=6
+upd_ram=10
 
 # color definitions
 #color_back="#FF1D1F21" # Default background
