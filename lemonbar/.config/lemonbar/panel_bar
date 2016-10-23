@@ -10,27 +10,27 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			sys="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			sys="%{F$c_f}%{B$c_10} ${line#?} %{B-}%{F-}"
 			;;
 		B*)
 			#Battery output
-			bat="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			bat="%{F$c_f}%{B$c_2} ${line#?} %{B-}%{F-}"
 			;;
 		V*)
 			#Volume output
-			vol="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			vol="%{F$c_f}%{B$c_5} ${line#?} %{B-}%{F-}"
 			;;
 		N*)
 			#Network output
-			net="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			net="%{F$c_f}%{B$c_10} ${line#?} %{B-}%{F-}"
 			;;
 		M*)
 			#mpd output
-			mpd="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			mpd="%{F$c_f}%{B$c_5} ${line#?} %{B-}%{F-}"
 			;;
 		T*)
 			# xtitle output
-			title="%{F$color_fore}%{B$color_back} ${line#?} %{B-}%{F-}"
+			title="%{F$c_f}%{B$c_1} ${line#?} %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm's state
@@ -46,13 +46,13 @@ while read -r line ; do
 						case $item in
 							m*)
 								# monitor
-								FG=$color_fore
-								BG=$color_back
+								FG=$c_f
+								BG=$c_0
 								;;
 							M*)
 								# focused monitor
-								FG=$color_fore
-								BG=$color_back
+								FG=$c_f
+								BG=$c_0
 								;;
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
@@ -61,45 +61,45 @@ while read -r line ; do
 						case $item in
 							f*)
 								# free desktop
-								FG=$color_fore
-								BG=$color_back
+								FG=$c_f
+								BG=$c_0
 								;;
 							F*)
 								# focused free desktop
-								FG=$color_fore
-								BG=$color_wsp
+								FG=$c_f
+								BG=$c_13
 								;;
 							o*)
 								# occupied desktop
-								FG=$color_fore
-								BG=$color_back
+								FG=$c_f
+								BG=$c_2
 								;;
 							O*)
 								# focused occupied desktop
-								FG=$color_fore
-								BG=$color_wsp
+								FG=$c_f
+								BG=$c_14
 								;;
 							u*)
 								# urgent desktop
-								FG=$color_fore
-								BG=$color_back
+								FG=$c_f
+								BG=$c_4
 								;;
 							U*)
 								# focused urgent desktop
-								FG=$color_fore
-								BG=$color_wsp
+								FG=$c_f
+								BG=$c_12
 								;;
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
 						;;
 					[LTG]*)
 						# layout, state and flags
-						wm="${wm}%{F$color_fore}%{B$color_back} ${name} %{B-}%{F-}"
+						wm="${wm}%{F$c_f}%{B$c_0} ${name} %{B-}%{F-}"
 						;;
 				esac
 				shift
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}${sep_right}${title}%{c}%{r}${mpd}${vol}${bat}${net}${sys}"
+	printf "%s\n" "%{l}${wm}%{F${c_0}}%{B${c_1}}${sep_right}%{F}%{B}${title}%{F${c_1}}%{B${c_2}}${sep_right}%{F}%{B}%{c}%{r}%{F${c_5}}${sep_left}%{F}${mpd}${vol}%{F${c_2}}%{B${c_5}}${sep_left}%{B}%{F}${bat}%{F${c_10}}%{B${c_9}}${sep_left}%{F}%{B}${net}%{B${c_10}}${sep_l_left}%{B}${sys}"
 done

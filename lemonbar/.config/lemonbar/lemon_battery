@@ -28,6 +28,6 @@ while true; do
 		fi
 	fi
 		
-	echo -e "B${command_string}${level}% ${bat_string}${end_command_string}  ${sep_right}"
+	echo -e "B${command_string}${level}%${bat_string}${end_command_string}"
 	sleep "$upd_bat";
 done

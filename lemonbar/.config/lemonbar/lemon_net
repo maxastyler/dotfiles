@@ -17,6 +17,6 @@ while true; do
 	else
 		net_string+=" no connection"
 	fi
-	echo -e "${net_string}${ec}  ${sep_right}"
+	echo -e "${net_string}${ec}"
 	sleep "${upd_net}"
 done

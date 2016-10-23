@@ -18,6 +18,6 @@ while true; do
 			vol_string=""
 		fi
 	fi
-	echo -e "V${command_string}${level}% ${vol_string}${end_command_string}  ${sep_right}"
+	echo -e "V${command_string}${level}% ${vol_string}${end_command_string}"
 	sleep "$upd_vol";
 done

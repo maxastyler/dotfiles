@@ -22,7 +22,7 @@ lemon_volume > "$panel_fifo" &
 lemon_mpd > "$panel_fifo" &
 lemon_net > "$panel_fifo" &
 
-panel_bar < "$panel_fifo" | lemonbar -a 32 -n "$panel_name" -g "x${geometry}" -f "${font}" -f "${iconfont}" -F "${color_fore}" -B "${color_back}" | sh &
+panel_bar < "$panel_fifo" | lemonbar -a 32 -n "$panel_name" -g "x${geometry}" -f "${font}" -f "${iconfont}" -F "${c_f}" -B "${c_2}" | sh &
 wid=$(xdo id -a "$panel_name")
 tries_left=20
 while [ -z "$wid" -a "$tries_left" -gt 0 ] ; do

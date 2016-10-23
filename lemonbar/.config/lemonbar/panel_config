@@ -2,9 +2,11 @@
 
 panel_fifo="/tmp/panel-fifo"
 panel_name="bspwm_panel"
-geometry="18"
-font="-xos4-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
-iconfont="-misc-fontawesome-*-*-*-*-*-*-*-*-*-*-*-*"
+geometry="12"
+#font="-xos4-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
+font="-*-terminesspowerline-*-*-*-*-*-*-*-*-*-*-*-*"
+iconfont="-misc-fontawesome-*-*-*-*-12-*-*-*-*-*-*-*"
+#powerfont="-*-powerlinesymbols-*-*-*-*-*-*-*-*-*-*-*-*"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 
 wifi_dev="wlp4s0b1"
@@ -23,19 +25,38 @@ upd_bat=10
 upd_net=10
 
 # color definitions
-color_back="#FF1D1F21" # Default background
-color_fore="#FFC5C8C6" # Default foreground
-color_head="#FFB5BD68" # Background for first element
-color_sec_b1="#FF282A2E" # Background for section 1
-color_sec_b2="#FF454A4F" # Background for section 2
-color_sec_b3="#FF60676E" # Background for section 3
-color_icon="#FF979997" # For icons
-color_mail="#FFCE935F" # Background color for mail alert
-color_chat="#FFCC6666" # Background color for chat alert
-color_cpu="#FF5F819D" # Background color for cpu alert
-color_net="#FF5E8D87" # Background color for net alert
-color_disable="#FF1D1F21" # Foreground for disable elements
+#color_back="#FF1D1F21" # Default background
+#color_fore="#FFC5C8C6" # Default foreground
+#color_head="#FFB5BD68" # Background for first element
+#color_sec_b1="#FF282A2E" # Background for section 1
+#color_sec_b2="#FF454A4F" # Background for section 2
+#color_sec_b3="#FF60676E" # Background for section 3
+#color_icon="#FF979997" # For icons
+#color_mail="#FFCE935F" # Background color for mail alert
+#color_chat="#FFCC6666" # Background color for chat alert
+#color_cpu="#FF5F819D" # Background color for cpu alert
+#color_net="#FF5E8D87" # Background color for net alert
+#color_disable="#FF1D1F21" # Foreground for disable elements
 color_wsp="#FF8C9440" # Background for selected workspace
+
+c_b="#302433"
+c_f="#f1f0f0"
+c_0="#543030"
+c_1="#454e59"
+c_2="#4f6269"
+c_3="#6a5e71"
+c_4="#7d443c"
+c_5="#9e7d6c"
+c_6="#8f9ba0"
+c_7="#e3bc96"
+c_8="#704644"
+c_9="#58646b"
+c_10="#6c7b84"
+c_11="#84768e"
+c_12="#a86e64"
+c_13="#b99081"
+c_14="#a9aebb"
+c_15="#f4d3b3"
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then
@@ -45,13 +66,10 @@ stab=' '
 fi
 
 # Char glyps for powerline fonts
-sep="|"
-sep_right=""
-sep_left=""
-#sep_left="" # Powerline separator left
-#sep_right="" # Powerline separator right
-#sep_l_left="" # Powerline light separator left
-#sep_l_right="" # Powerline light sepatator right
+sep_left="" # Powerline separator left
+sep_right="" # Powerline separator right
+sep_l_left="" # Powerline light separator left
+sep_l_right="" # Powerline light sepatator right
 
 # Icon glyphs from Terminusicons2
 icon_clock="Õ" # Clock icon
