@@ -16,7 +16,7 @@ Scrot for taking screenshots
 
 ##TODO
 
-Add a cpu/memory monitor to lemonbar. Should be easy enough to do with "ps -eo pcpu | grep -vE '0.0|%CPU' and 'grep -E 'Mem(Total|Free)' /proc/meminfo'
+~~Add a cpu/memory monitor to lemonbar. Should be easy enough to do with "ps -eo pcpu | grep -vE '0.0|%CPU' and 'grep -E 'Mem(Total|Free)' /proc/meminfo'~~
 
 Add some way to shutdown nicely eg:
 Rofi, dmenu 
