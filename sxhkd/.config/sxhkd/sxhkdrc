@@ -46,6 +46,10 @@ super + F3
 super + F4
 	pcmanfm
 
+#Task manager
+ctrl + alt + Delete
+	urxvt -e top
+
 #
 # Printing screen with scrot
 #
