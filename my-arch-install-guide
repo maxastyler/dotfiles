@@ -1,0 +1,18 @@
+Install nm, nmtui when pacstrapping
+
+Nice system partitions:
+/	- ext4
+/boot	- ext4/efi (fat32)
+/var	- ext4
+/tmp	- ext4
+/home	- ext4
+swap 	- (use swapon before genfstabbing)
+
+When adding users, only need to add to group Wheel. Other stuff can be added later.
+
+Comment out line in /etc/sudoers:
+%wheel ALL=(ALL) ALL
+
+To get keyboard conf working, use 
+localectl --no-convert set-x11-keymap gb
+Console keymap us uk
