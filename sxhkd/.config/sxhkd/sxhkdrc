@@ -47,6 +47,16 @@ super + F4
 	pcmanfm
 
 #
+# Printing screen with scrot
+#
+Print
+	~/.config/bspwm/bspwm-scrot 
+super + Print
+	~/.config/bspwm/bspwm-scrot -w
+super + shift + Print
+	sleep 0.2; ~/.config/bspwm/bspwm-scrot -s
+
+#
 # bspwm hotkeys
 #
 

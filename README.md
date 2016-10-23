@@ -12,6 +12,7 @@ rxvt-unicode-patched for terminal
 Uses network manager (nmcli, nmtui) for wireless connections.
 Mopidy and GMusicProxy for music
 Font awesome for lemonbar
+Scrot for taking screenshots
 
 ##TODO
 
