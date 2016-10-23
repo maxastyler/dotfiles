@@ -12,3 +12,7 @@ rxvt-unicode-patched for terminal
 Uses network manager (nmcli, nmtui) for wireless connections.
 Mopidy and GMusicProxy for music
 Font awesome for lemonbar
+
+##TODO
+
+Add a cpu/memory monitor to lemonbar. Should be easy enough to do with "ps -eo pcpu | grep -vE '0.0|%CPU' and 'grep -E 'Mem(Total|Free)' /proc/meminfo'
