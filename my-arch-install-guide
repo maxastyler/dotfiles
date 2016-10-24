@@ -54,3 +54,135 @@ Console keymap us uk
 27. $exit
 28. $umount -R /mnt
 29. $shutdown now #Take out usb and then turn on again. Should boot into a terminal
+
+#####Installed now!
+
+1. Disable wpa_supplicant before enabling NetworkManager, $systemctl disable wpa_supplicant
+2. Once logged in, connect to the internet. If using networkmanager, enable the service with $systemctl enable NetworkManager (This will then keep running every time. Start the service with $systemctl start NetworkManager (NetworkManager is case sensitive. trying enable networkmanager won't work)
+3. Once networkmanager is started, run nmtui and connect to a network.2. Once networkmanager is started, run nmtui and connect to a network.
+4. Install zsh. Nicer shell than bash. This is what users can use. $pacman -S zsh
+5. Add a user, add to group wheel and set default shell to zsh. $useradd -m -G wheel -s /bin/zsh monkey
+6. Change that user's password. $passwd monkey
+7. Let any user in wheel use the sudo command: Edit /etc/sudoers and uncomment the line: # %wheel ALL=(ALL) ALL
+8. Exit, $exit and log back in as the new user. You'll have to run the zsh config. Don't bother if you already have a .zshrc lined up.
+9. Install git so you can get yaourt, super-pacman. $sudo pacman -S git
+10. Make a git directory in your home folder: $mkdir ~/git; $cd ~/git
+11. Follow these instructions:
+	$git clone https://aur.archlinux.org/package-query.git
+	$cd package-query
+	$makepkg -si
+	$cd ..
+	$git clone https://aur.archlinux.org/yaourt.git
+	$cd yaourt
+	$makepkg -si
+	$cd ..
+You now have yaourt installed. This has pretty much all the same commands as pacman eg, yaourt -Ss to search. yaourt -S to install
+12. Install nice stuff: 
+yaourt -S:
+
+xorg (Graphics. This is a group of packages, maybe not all needed but I haven't looked at what's the minimum necessary yet)
+vim (Sweet text editor)
+lightdm  (login manager)
+lightdm-gtk-greeter (Needed to actually see anything on login)
+lightdm-gtk-greeter-settings (If you want to change how the login page looks)
+bspwm (window manager)
+sxhkd (bspwm's keyboard manager)
+palemoon-bin (nice browser based off firefox, lighter. If you want to compile each time, just use palemoon without the bin)
+rxvt-unicode-patched (urxvt terminal with support for some more fonts)
+dmenu
+lemonbar-xft-git (Status bar with support for xft fonts)
+ranger (console based file manager)
+pcmanfm (X based file manager)
+scrot (screenshot taker)
+feh (Simple image viewer, and background setter)
+ncmpcpp (Console based music player, support for mpd)
+mopidy
+python-pip
+python2-pip
+vim-pathogen
+light (For controlling the backlight)
+pulseaudio (If you want pulse. I prefer it to ALSA)
+pamixer (A terminal control for pulse volume)
+stow (For managing dotfiles)
+oh-my-zsh-git (A nice zsh setup, stuff like vim keys n nice themes)
+w3m (For viewing images in the terminal. Crazy!)
+fontconfig-infinality (Nicer looking font rendering)
+terminus-font-ttf
+terminus-font
+otf-font-awesome
+ttf-font-awesome
+terminess-powerline-font-git
+xdo-git
+mpc
+xtitle
+tcl
+tk
+insync
+vim-airline
+stalonetray
+powerline
+
+13. Enable the lightdm service to start on startup: $sudo systemctl enable lightdm
+14. Reboot, hopefully it'll work. $reboot
+15. Once logged in, a black screen should appear with a cursor. This is bspwm. 
+If you want just a minimal install, go to a terminal ([ctrl]+[alt]+F{2, 3, 4, 5, ...}) and copy the example files from /usr/share/doc/bspwm/examples into their folders in ~/.config 
+eg:
+$mkdir -p ~/.config/bspwm
+$cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+$mkdir -p ~/.config/sxhkd
+$cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+Now, kill bspwm, and login again on lightdm: $pkill bspwm
+Once logged in, you should be able to open terminals with [mod+enter]
+
+16. Set the X keymap with localectl:
+
+$localectl --no-convert set-x11-keymap gb
+
+17. download the dotfiles in home folder:
+$cd ~
+$git clone https://github.com/mtyler88/dotfiles.git 
+$cd dotfiles
+
+Once they are installed, the stow command can be used to install the config files into home, eg: $stow bspwm
+You might need to delete the ~/.config/bspwmrc and ~/.config/sxhkd/sxhkdrc files if you'd copied them before:
+$rm ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc
+
+18. Stow all you want. Most things should be installed, but some might need more fonts n that
+
+Enable tapping with the toucpad and that:
+If using the synaptics touchpad driver, make a file:
+sudo vim /etc/X11/xorg.conf.d/70-synaptics.conf
+
+Put in it:
+
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "synaptics"
+	MatchIsTouchpad "on"
+		Option "TapButton1" "1"
+		Option "TapButton2" "3"
+		Option "TapButton3" "2"
+EndSection
+
+For installing gmusic, gmusic access in the terminal, you need mopidy-gmusic from pip:
+$sudo pip2 install Mopidy-GMusic
+$sudo pip install Mopidy-GMusic
+make mopidy use python2.7, edit /usr/bin/mopidy and change #!/usr/bin/python to #!/usr/bin/python2
+$sudo systemctl start mopidy
+If you want mopidy auto-started:
+$sudo systemctl enable mopidy
+Generate an app password for mopidy-gmusic using google online. Then add into the mopidy config file, /etc/mopidy/mopidy.conf
+[gmusic]
+username=
+password=
+deviceid=
+bitrate=320
+
+Setting up Palemoon:
+Install the pentadactyl extension
+Navigation bar -> get more search engines -> get google
+Install adblock latitude
+
+Installing lemonbar:
+Add ~/.config/lemonbar/ to the PATH variable. Do this by adding the line: export PATH=$PATH:/home/(your username)/.config/lemonbar to the file /etc/profile
+In lemonbar config file, set the wireless device to whatever your device is called
