@@ -61,6 +61,11 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
+""""""""""
+"Set colours to hopefully use .xresources
+""""""""""
+set t_Co=16
+
 """""""""""
 "Set the statusbar to be visible, and use airline fonts if installed
 """"""""""
