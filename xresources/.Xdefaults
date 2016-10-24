@@ -34,4 +34,4 @@ File: ~/.Xresources
 
 URxvt*scrollBar: false
 
-URxvt*font: xft:terminus:size=10
+URxvt*font: xft:Terminess Powerline:size=10
