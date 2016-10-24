@@ -6,18 +6,6 @@ command_string="%{A:pamixer -t:}%{A4:pamixer -i 2:}%{A5:pamixer -d 2:}"
 end_command_string="%{A}%{A}%{A}"
 
 while true; do
-	level="$(pamixer --get-volume)"
-	if [ "$(pamixer --get-mute)" = "true" ]; then
-		vol_string=""
-	else
-		if (( 70 < "$level" )); then
-			vol_string=""
-		elif (( 20 < "$level" <= 70 )); then
-			vol_string=""
-		else
-			vol_string=""
-		fi
-	fi
-	echo -e "V${command_string}${level}% ${vol_string}${end_command_string}"
+	upd_vol_now
 	sleep "$upd_vol";
 done

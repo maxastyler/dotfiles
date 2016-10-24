@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+. panel_config 
+
+command_string="%{A:palemvol 0:}%{A4:palemvol 2:}%{A5:palemvol -2:}"
+end_command_string="%{A}%{A}%{A}"
+
+level="$(pamixer --get-volume)"
+	if [ "$(pamixer --get-mute)" = "true" ]; then
+		vol_string=""
+	else
+		if (( 70 < "$level" )); then
+			vol_string=""
+		elif (( 20 < "$level" <= 70 )); then
+			vol_string=""
+		else
+			vol_string=""
+		fi
+	fi
+echo -e "V${command_string}${level}% ${vol_string}${end_command_string}"
+

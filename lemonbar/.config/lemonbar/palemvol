@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+. panel_config
+
+if (( "$1" == 0 )); then
+	pamixer -t
+	upd_vol_now > "$panel_fifo"
+elif (( "$1" > 0 )); then
+	pamixer -i "$1"
+	upd_vol_now > "$panel_fifo"
+elif (( "$1" < 0 )); then
+	pamixer -d "${1#?}"
+	upd_vol_now > "$panel_fifo"
+fi
