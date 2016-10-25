@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+. panel_config
+while true; do
+	echo -e "S$(date +%a\ %d/%m\ %H:%M)"
+	sleep "$upd_time"
+done

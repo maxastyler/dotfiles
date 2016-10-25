@@ -16,7 +16,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 bspc config top_padding $geometry
 bspc subscribe report > "$panel_fifo" &
 xtitle -sf 'T%s' > "$panel_fifo" &
-clock -sf 'S%a %d/%m %H:%M' > "$panel_fifo" &
+lemon_time > "$panel_fifo" &
 lemon_battery > "$panel_fifo" &
 lemon_volume > "$panel_fifo" &
 lemon_mpd > "$panel_fifo" &
