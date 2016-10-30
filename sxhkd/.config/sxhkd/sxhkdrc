@@ -25,7 +25,7 @@ XF86Audio{Play,Stop,Next,Prev}
 
 #Brightness
 XF86MonBrightness{Up,Down}
-	light -{A,S} 5
+	light -{A,U} 5
 
 #
 #Program launcher hotkeys
