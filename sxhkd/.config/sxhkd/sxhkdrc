@@ -169,4 +169,4 @@ super + {Left,Down,Up,Right}
 
 # Change window gap
 super + alt + {minus,equal}
-	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+	bspc config window_gap $((`bspc config window_gap` {+,-} 2 ))
