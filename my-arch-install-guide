@@ -189,3 +189,7 @@ Install adblock latitude
 Installing lemonbar:
 Add ~/.config/lemonbar/ to the PATH variable. Do this by adding the line: export PATH=$PATH:/home/(your username)/.config/lemonbar to the file /etc/profile
 In lemonbar config file, set the wireless device to whatever your device is called
+
+Making java play nice with bspwm:
+Add this line to /etc/profile.d/jre.sh
+export _JAVA_AWT_WM_NONREPARENTING=1
