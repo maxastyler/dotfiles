@@ -8,7 +8,8 @@ URxvt.resize-font.bigger: C-Up
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 ! font
-URxvt*font: xft:Source\ Code\ Pro\ Medium:size=10:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
+URxvt*font: xft:Source\ Code\ Pro:size=10:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
+
 ! terminal padding
 URxvt.internalBorder: 5
 ! uncomment for transparent terminal if you are ready to be made fun of in #rice
