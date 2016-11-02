@@ -8,10 +8,10 @@ URxvt.resize-font.bigger: C-Up
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 ! font
-URxvt*font: xft:Source\ Code\ Pro:size=10:antialias=true:hinting=true,xft:Liberation Mono:antialias=true:hinting=true
+URxvt*font: xft:Source\ Code\ Pro:size=10:antialias=true,xft:Liberation Mono:antialias=true
 
 ! terminal padding
-URxvt.internalBorder: 5
+URxvt.internalBorder: 0
 ! uncomment for transparent terminal if you are ready to be made fun of in #rice
 ! URxvt.transparent: true
 ! URxvt.shading: 15
@@ -89,3 +89,13 @@ URxvt.matcher.rend.0: Uline Bold fg5
 *.color246: #a89984
 *.color248: #bdae93
 *.color250: #d5c4a1
+
+rofi.width: 100
+rofi.padding: 100
+rofi.fullscreen: true
+rofi.terminal: urxvt
+rofi.lines: 9
+rofi.font: Hack 20
+!rofi.color-window: argb:ee2B303B, argb:AA181818, #1818181
+!rofi.color-normal: argb:00BF616A, #8FA1B3, argb:00BF616A, argb:00BF616A, #BF616A
+rofi.separator-style: none
