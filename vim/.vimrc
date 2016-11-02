@@ -61,10 +61,14 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
+"Use gruvbox
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
 """"""""""
 "Set colours to hopefully use .xresources
 """"""""""
-set t_Co=16
+set t_Co=256
 
 """""""""""
 "Set the statusbar to be visible, and use airline fonts if installed
