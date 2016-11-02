@@ -1,4 +1,4 @@
-File: ~/.Xresources
+!File: ~/.Xresources
 ! Terminal colors
 ! special
 *.foreground:#f1f0f0 
@@ -33,5 +33,4 @@ File: ~/.Xresources
 !URxvt*shading: 10
 
 URxvt*scrollBar: false
-
 URxvt*font: xft:Terminess Powerline:size=10
