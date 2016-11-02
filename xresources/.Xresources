@@ -91,7 +91,7 @@ URxvt.matcher.rend.0: Uline Bold fg5
 *.color250: #d5c4a1
 
 rofi.width: 100
-rofi.padding: 100
+rofi.padding: 200
 rofi.fullscreen: true
 rofi.terminal: urxvt
 rofi.lines: 9
