@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-fill '/home/max/.wallpapers/howl.jpg' 
+feh --bg-tile '/home/max/.wallpapers/tweed.png' 
