@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+rofi -show run -lines 5 -eh 2 -width 50 -padding 10 -opacity "20" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Source Code Pro 12"
