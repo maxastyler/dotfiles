@@ -4,8 +4,10 @@ panel_fifo="/tmp/panel-fifo"
 panel_name="bspwm_panel"
 geometry="12"
 #font="-xos4-terminus-*-*-*-*-12-*-*-*-*-*-*-*"
-font="-*-terminesspowerline-*-*-*-*-*-*-*-*-*-*-*-*"
-iconfont="-misc-fontawesome-*-*-*-*-12-*-*-*-*-*-*-*"
+#font="-*-terminesspowerline-*-*-*-*-*-*-*-*-*-*-*-*"
+#iconfont="-misc-fontawesome-*-*-*-*-12-*-*-*-*-*-*-*"
+font="Terminess Powerline:size=8:antialias=true"
+iconfont="FontAwesome:size=8:antialias=true"
 #powerfont="-*-powerlinesymbols-*-*-*-*-*-*-*-*-*-*-*-*"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 
