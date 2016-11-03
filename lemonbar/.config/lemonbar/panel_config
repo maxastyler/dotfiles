@@ -42,9 +42,9 @@ upd_time=15
 #color_disable="#FF1D1F21" # Foreground for disable elements
 color_wsp="#FF8C9440" # Background for selected workspace
 
-c_b="#302433"
+c_b="#000000"
 c_f="#f1f0f0"
-c_0="#543030"
+c_0="#000000A0"
 c_1="#454e59"
 c_2="#4f6269"
 c_3="#6a5e71"

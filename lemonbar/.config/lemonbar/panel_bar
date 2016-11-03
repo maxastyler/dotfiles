@@ -21,27 +21,27 @@ while read -r line ; do
 			;;
 		S*)
 			# clock output
-			sys="%{F$c_f}%{B$c_10} ${line#?} %{B-}%{F-}"
+			sys="%{F$c_f}%{B$c_0} ${line#?} %{B-}%{F-}"
 			;;
 		B*)
 			#Battery output
-			bat="%{F$c_f}%{B$c_2} ${line#?} %{B-}%{F-}"
+			bat="%{F$c_f}%{B$c_0} ${line#?} %{B-}%{F-}"
 			;;
 		V*)
 			#Volume output
-			vol="%{F$c_f}%{B$c_5} ${line#?} %{B-}%{F-}"
+			vol="%{F$c_f}%{B$c_0} ${line#?} %{B-}%{F-}"
 			;;
 		N*)
 			#Network output
-			net="%{F$c_f}%{B$c_10} ${line#?} %{B-}%{F-}"
+			net="%{F$c_f}%{B$c_0} ${line#?} %{B-}%{F-}"
 			;;
 		M*)
 			#mpd output
-			mpd="%{F$c_f}%{B$c_5} ${line#?} %{B-}%{F-}"
+			mpd="%{F$c_f}%{B$c_0} ${line#?} %{B-}%{F-}"
 			;;
 		T*)
 			# xtitle output
-			title="%{F$c_f}%{B$c_1} ${line#?} %{B-}%{F-}"
+			title="%{F$c_f}%{B$c_0} ${line#?} %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm's state
@@ -72,45 +72,45 @@ while read -r line ; do
 						case $item in
 							f*)
 								# free desktop
-								FG=$c_f
+								FG=$c_5
 								BG=$c_0
 								;;
 							F*)
 								# focused free desktop
 								FG=$c_f
-								BG=$c_13
+								BG=$c_0
 								;;
 							o*)
 								# occupied desktop
-								FG=$c_f
-								BG=$c_2
+								FG=$c_7
+								BG=$c_0
 								;;
 							O*)
 								# focused occupied desktop
 								FG=$c_f
-								BG=$c_14
+								BG=$c_0
 								;;
 							u*)
 								# urgent desktop
-								FG=$c_f
-								BG=$c_4
+								FG=$c_6
+								BG=$c_0
 								;;
 							U*)
 								# focused urgent desktop
 								FG=$c_f
-								BG=$c_12
+								BG=$c_0
 								;;
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
 						;;
 					[LTG]*)
 						# layout, state and flags
-						wm="${wm}%{F$c_f}%{B$c_0} ${name} %{B-}%{F-}"
+						#wm="${wm}%{F$c_f}%{B$c_0} ${name} %{B-}%{F-}"
 						;;
 				esac
 				shift
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{F${c_0}}%{B${c_1}}${sep_right}%{F}%{B}${title}%{F${c_1}}%{B${c_2}}${sep_right}%{F}%{B}%{c}%{r}%{F${c_5}}${sep_left}%{F}${mpd}${vol}%{F${c_0}}%{B${c_5}}${sep_left}%{B}%{F}${top_cmd}${cpu}${ram}${e_c_s}%{F${c_2}}%{B${c_0}}${sep_left}%{F}%{B}${bat}%{F${c_10}}%{B${c_9}}${sep_left}%{F}%{B}${net}%{B${c_10}}${sep_l_left}%{B}${sys}"
+	printf "%s\n" "%{l}${mpd}${vol}%{c}${wm}%{r}${net}${cpu}${ram}${bat}${sys}"
 done

@@ -30,6 +30,6 @@ while true; do
 	else
 		music="${command_string}${current}${end_string}"
 	fi
-	echo -e "M${music}  %{F${c_f}}${sep_l_left}%{F}"
+	echo -e "M${music}"
 	sleep "$upd_mpd"
 done
