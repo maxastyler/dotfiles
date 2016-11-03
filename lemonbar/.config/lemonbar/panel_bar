@@ -72,9 +72,9 @@ while read -r line ; do
 						case $item in
 							f*)
 								# free desktop
-								FG=$c_5
+								FG=$c_f
 								BG=$c_0
-								text=""
+								text=""
 								;;
 							F*)
 								# focused free desktop
@@ -84,9 +84,9 @@ while read -r line ; do
 								;;
 							o*)
 								# occupied desktop
-								FG=$c_7
+								FG=$c_f
 								BG=$c_0
-								text=""
+								text=""
 								;;
 							O*)
 								# focused occupied desktop
@@ -96,7 +96,7 @@ while read -r line ; do
 								;;
 							u*)
 								# urgent desktop
-								FG=$c_6
+								FG=$c_f
 								BG=$c_0
 								text=""
 								;;
