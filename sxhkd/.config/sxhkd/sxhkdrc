@@ -42,7 +42,7 @@ super + F1
 	urxvt -e vim
 
 super + F2
-	palemoon
+	firefox
 
 super + F3
 	urxvt -e ranger
@@ -52,7 +52,7 @@ super + F4
 
 #Task manager
 ctrl + alt + Delete
-	urxvt -e top
+	urxvt -e htop
 
 #
 # Printing screen with scrot
