@@ -74,34 +74,41 @@ while read -r line ; do
 								# free desktop
 								FG=$c_5
 								BG=$c_0
+								text=""
 								;;
 							F*)
 								# focused free desktop
 								FG=$c_f
 								BG=$c_0
+								text=""
 								;;
 							o*)
 								# occupied desktop
 								FG=$c_7
 								BG=$c_0
+								text=""
 								;;
 							O*)
 								# focused occupied desktop
 								FG=$c_f
 								BG=$c_0
+								text=""
 								;;
 							u*)
 								# urgent desktop
 								FG=$c_6
 								BG=$c_0
+								text=""
 								;;
 							U*)
 								# focused urgent desktop
 								FG=$c_f
 								BG=$c_0
+								text=""
 								;;
 						esac
-						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+						#wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${text} %{A}%{B-}%{F-}"
 						;;
 					[LTG]*)
 						# layout, state and flags
