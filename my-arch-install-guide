@@ -61,6 +61,7 @@ Console keymap us uk
 2. Once logged in, connect to the internet. If using networkmanager, enable the service with $systemctl enable NetworkManager (This will then keep running every time. Start the service with $systemctl start NetworkManager (NetworkManager is case sensitive. trying enable networkmanager won't work)
 3. Once networkmanager is started, run nmtui and connect to a network.2. Once networkmanager is started, run nmtui and connect to a network.
 4. Install zsh. Nicer shell than bash. This is what users can use. $pacman -S zsh
+4.1 Install oh-my-zsh from git
 5. Add a user, add to group wheel and set default shell to zsh. $useradd -m -G wheel -s /bin/zsh monkey
 6. Change that user's password. $passwd monkey
 7. Let any user in wheel use the sudo command: Edit /etc/sudoers and uncomment the line: # %wheel ALL=(ALL) ALL
