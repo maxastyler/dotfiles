@@ -138,6 +138,7 @@ gruvbox
 nerdtree
 nerdtree-git-plugin
 vimtex
+ctrlp.vim
 
 13. Enable the lightdm service to start on startup: $sudo systemctl enable lightdm
 14. Reboot, hopefully it'll work. $reboot
