@@ -85,3 +85,5 @@ set relativenumber
 "Give ability to write to a protected file with w!! if you haven't started in
 "sudo mode
 cmap w!! w !sudo tee > /dev/null %
+
+
