@@ -126,6 +126,18 @@ nm-connection-editor (nmtui can't edit the connections too well, this is for one
 apvlv
 ctags
 compton
+texlive-most
+zathura
+zathura-pdf-mupdf
+fetchmirrors
+
+
+--------------------
+Vim plugins:
+gruvbox
+nerdtree
+nerdtree-git-plugin
+vimtex
 
 13. Enable the lightdm service to start on startup: $sudo systemctl enable lightdm
 14. Reboot, hopefully it'll work. $reboot
