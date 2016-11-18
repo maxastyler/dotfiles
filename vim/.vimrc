@@ -61,6 +61,9 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
+"Omni completion
+set omnifunc=syntaxcomplete#Complete
+
 "Use gruvbox
 let g:gruvbox_italic=1
 colorscheme gruvbox
@@ -76,6 +79,7 @@ set t_Co=256
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
+command Ctags !ctags -R .
 
 """"""""""
 "Set relative line numbers, nice for jumping around
@@ -86,4 +90,33 @@ set relativenumber
 "sudo mode
 cmap w!! w !sudo tee > /dev/null %
 
+"Neocomplete 
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
+"tagbar toggle
+nmap <F8> :TagbarToggle<CR>
+
+""""""""""
+"Vimtex stuff
+"Turn off warnings
+let g:vimtex_disable_version_warning = 1
+let g:tex_flavor = 'latex'
+
+"Nerdtree toggle
+nmap <F4> :NERDTreeToggle<CR>
+
+"Open nerdtree automatically
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+"Automatically execute python scripts
+autocmd FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
