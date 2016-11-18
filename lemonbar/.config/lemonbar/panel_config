@@ -28,6 +28,7 @@ upd_net=10
 upd_cpu=6
 upd_ram=10
 upd_time=15
+upd_pom=1
 
 # color definitions
 #color_back="#FF1D1F21" # Default background

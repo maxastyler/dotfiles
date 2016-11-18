@@ -11,6 +11,10 @@ e_c_s="%{A}"
 
 while read -r line ; do
 	case $line in
+		P*) 
+			#Pomodoro output
+			pom="%{B$c_0} ${line#?} %{B-}"
+			;;
 		C*)
 			#cpu output
 			cpu="%{B$c_0} ${line#?} %{B-}"
@@ -119,5 +123,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${mpd}${vol}%{c}${wm}%{r}${net}${cpu}${ram}${bat}${sys}"
+	printf "%s\n" "%{l}${mpd}${vol}${pom}%{c}${wm}%{r}${net}${cpu}${ram}${bat}${sys}"
 done

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+. panel_config
+
+while true; do
+	upd_pom_now
+	sleep "$upd_pom";	
+done
