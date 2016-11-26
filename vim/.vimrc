@@ -93,6 +93,11 @@ cmap w!! w !sudo tee > /dev/null %
 "Neocomplete 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'tex' : $HOME.'/.latex_dict'
+        \ }
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <TAB>: completion.
@@ -120,3 +125,4 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "Automatically execute python scripts
 autocmd FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+
