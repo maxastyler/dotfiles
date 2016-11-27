@@ -2,6 +2,7 @@
                             (tool-bar-lines . 0)
                             (menu-bar-lines . 0)
                             (fullscreen . nil)))
+
 (require 'package)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -15,7 +16,10 @@
  '(custom-safe-themes
    (quote
     ("962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
- '(package-selected-packages (quote (auctex airline-themes evil helm))))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages
+   (quote
+    (all-the-icons auctex airline-themes evil helm neotree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -27,6 +31,7 @@
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode t)
+
 ;;Use helm
 (require 'helm-config)
 (helm-mode 1)
@@ -40,6 +45,7 @@
   (define-key lisp-interaction-mode-map [remap completion-at-point] 'helm-lisp-completion-at-point)
   (define-key emacs-lisp-mode-map       [remap completion-at-point] 'helm-lisp-completion-at-point))
 (add-hook 'kill-emacs-hook #'(lambda () (and (file-exists-p "$CONF_FILE") (delete-file "$CONF_FILE"))))
+
 ;;Options needed for settings the airline theme correctly
 (setq powerline-utf-8-separator-left        #xe0b0
       powerline-utf-8-separator-right       #xe0b2
@@ -54,6 +60,13 @@
 (require 'airline-themes)
 (load-theme 'airline-light)
 
+;;Neotree theme
+(evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+(evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+(evil-define-key 'normal neotree-mode-map (kbd "s") 'neotree-enter-vertical-split)
+(evil-define-key 'normal neotree-mode-map (kbd "S") 'neotree-enter-horizontal-split)
 ;;Make reftex work with auctex
 (setq reftex-plug-into-AUCTeX t)
 (setq TeX-auto-save t)
@@ -63,3 +76,6 @@
 
 ;;Use C-w to delete a word backwards
 (global-set-key (kbd "C-w") 'backward-kill-word)
+
+;;Neotree open
+(global-set-key [f4] 'neotree-toggle)

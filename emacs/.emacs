@@ -16,9 +16,10 @@
  '(custom-safe-themes
    (quote
     ("962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
+ '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (all-the-icons auctex airline-themes evil helm neotree))))
+    (all-the-icons auctex airline-themes evil helm neotree company magit evil-magit projectile helm-projectile))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -30,6 +31,14 @@
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode t)
+(require 'evil-magit)
+
+(global-company-mode t)
+(setq company-idle-delay 0.2)
+(setq company-selection-wrap-around t)
+(define-key company-active-map [tab] 'company-complete)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
 
 ;;Use helm
 (require 'helm-config)
@@ -71,6 +80,9 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
+;;Projectile
+(projectile-global-mode)
+
 ;;Other key bindings
 
 ;;Use C-w to delete a word backwards
@@ -78,3 +90,6 @@
 
 ;;Neotree open
 (global-set-key [f4] 'neotree-toggle)
+
+;;Magit
+(global-set-key (kbd "C-x g") 'magit-status)
