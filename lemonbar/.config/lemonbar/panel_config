@@ -11,10 +11,10 @@ iconfont="FontAwesome:size=8:antialias=true"
 #powerfont="-*-powerlinesymbols-*-*-*-*-*-*-*-*-*-*-*-*"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 
-#wifi_dev="wlp4s0b1"
-wifi_dev="wlp5s0b1"
-#eth_dev="enp3s0"
-eth_dev="enp9s0"
+wifi_dev="wlp4s0b1"
+#wifi_dev="wlp5s0b1"
+eth_dev="enp3s0"
+#eth_dev="enp9s0"
 bat_loc="BAT1"
 
 # Alarm settings
