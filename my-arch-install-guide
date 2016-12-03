@@ -123,7 +123,6 @@ vim-airline
 stalonetray
 powerline
 nm-connection-editor (nmtui can't edit the connections too well, this is for ones with spookier configs (eg. eduroam))
-apvlv
 ctags
 compton
 texlive-most
