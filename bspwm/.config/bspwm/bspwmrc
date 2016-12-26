@@ -1,7 +1,7 @@
 #! /bin/sh
 
 sxhkd &
-panel &
+~/.config/polybar/launch.sh
 compton &
 insync-headless start &
 ~/.fehbg &
