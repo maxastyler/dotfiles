@@ -19,11 +19,9 @@ xtitle -sf 'T%s' > "$panel_fifo" &
 lemon_time > "$panel_fifo" &
 lemon_battery > "$panel_fifo" &
 lemon_volume > "$panel_fifo" &
-lemon_mpd > "$panel_fifo" &
 lemon_net > "$panel_fifo" &
 lemon_cpu > "$panel_fifo" &
 lemon_ram > "$panel_fifo" &
-lemon_pom > "$panel_fifo" &
 
 panel_bar < "$panel_fifo" | lemonbar -a 40 -n "$panel_name" -g "x${geometry}" -f "${font}" -f "${iconfont}" -F "${c_f}" -B "${c_0}" | sh &
 wid=$(xdo id -a "$panel_name")
