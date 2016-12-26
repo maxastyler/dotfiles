@@ -39,7 +39,7 @@ XF86Launch3
 	urxvt -e ncmpcpp
 
 super + F1
-	urxvt -e vim
+	emacsclient -c
 
 super + F2
 	firefox
