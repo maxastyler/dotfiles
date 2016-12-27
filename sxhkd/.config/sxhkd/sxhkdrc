@@ -20,9 +20,9 @@ super + Escape
 
 #Audio
 XF86Audio{Raise,Lower}Volume
-	palemvol {5,-5};
+  pamixer -{i,d} 5
 XF86AudioMute
-	palemvol 0;
+	pamixer -t
 
 XF86Audio{Play,Stop,Next,Prev}
 	mpc {toggle,stop,next,prev}
