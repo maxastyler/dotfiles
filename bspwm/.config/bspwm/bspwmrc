@@ -3,7 +3,7 @@
 sxhkd &
 ~/.config/polybar/launch.sh
 compton &
-insync-headless start &
+insync start 
 ~/.fehbg &
 emacs --daemon &
 
