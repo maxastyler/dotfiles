@@ -9,7 +9,8 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 ! font
 !URxvt*font: xft:Source\ Code\ Pro:size=10:antialias=true,xft:Liberation Mono:antialias=true
-URxvt*font: xft:Terminess\ Powerline:size=10:antialias=true,xft:Liberation Mono:antialias=true
+!URxvt*font: xft:Terminess\ Powerline:size=10:antialias=true,xft:Liberation Mono:antialias=true
+URxvt*font: xft:iosevka:size=10:antialias=true,xft:Liberation Mono:antialias=true
 
 ! terminal padding
 URxvt.internalBorder: 0
@@ -96,7 +97,8 @@ rofi.padding: 200
 rofi.fullscreen: true
 rofi.terminal: urxvt
 rofi.lines: 9
-rofi.font: Hack 20
+!rofi.font: Hack 20
+rofi.font: iosevka 20
 rofi.color-window: argb:ee2B303B, argb:AA181818, #1818181
 rofi.color-normal: argb:00BF616A, #8FA1B3, argb:00BF616A, argb:00BF616A, #BF616A
 rofi.separator-style: none
