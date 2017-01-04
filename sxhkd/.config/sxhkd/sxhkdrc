@@ -31,6 +31,10 @@ XF86Audio{Play,Stop,Next,Prev}
 XF86MonBrightness{Up,Down}
 	light -{A,U} 5
 
+#Lock screen, from custom script
+ctrl + alt + l
+	~/.config/i3lock/i3lock_script
+
 #
 #Program launcher hotkeys
 #
@@ -42,7 +46,7 @@ super + F1
 	emacsclient -c
 
 super + F2
-	firefox
+	chromium
 
 super + F3
 	urxvt -e ranger
