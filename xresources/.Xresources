@@ -12,6 +12,9 @@ URxvt.iso14755_52: false
 !URxvt*font: xft:Terminess\ Powerline:size=10:antialias=true,xft:Liberation Mono:antialias=true
 URxvt*font: xft:iosevka:size=10:antialias=true,xft:Liberation Mono:antialias=true
 
+! terminal name
+URxvt*termName: xterm-256color
+
 ! terminal padding
 URxvt.internalBorder: 0
 ! uncomment for transparent terminal if you are ready to be made fun of in #rice
