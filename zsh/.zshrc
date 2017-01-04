@@ -85,3 +85,6 @@ source ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ect='emacsclient -t'
+alias acc='emacsclient -c &'
