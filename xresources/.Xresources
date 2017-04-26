@@ -10,7 +10,7 @@ URxvt.iso14755_52: false
 ! font
 !URxvt*font: xft:Source\ Code\ Pro:size=10:antialias=true,xft:Liberation Mono:antialias=true
 !URxvt*font: xft:Terminess\ Powerline:size=10:antialias=true,xft:Liberation Mono:antialias=true
-URxvt*font: xft:iosevka:size=10:antialias=true,xft:Liberation Mono:antialias=true
+URxvt*font: xft:Source Code Pro:size=10:antialias=true,xft:Liberation Mono:antialias=true
 
 ! terminal name
 URxvt*termName: xterm-256color
@@ -30,7 +30,7 @@ Xft.rgba: rgb
 ! clickable links, clipboard support, mouse wheel support, and on the fly font resizing
 ! you will need to install the relevent perl extensions for these to work
 URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
 URxvt.matcher.rend.0: Uline Bold fg5
 ! colors
@@ -101,7 +101,7 @@ rofi.fullscreen: true
 rofi.terminal: urxvt
 rofi.lines: 9
 !rofi.font: Hack 20
-rofi.font: iosevka 20
+rofi.font: Source Code Pro 20
 rofi.color-window: argb:ee2B303B, argb:AA181818, #1818181
 rofi.color-normal: argb:00BF616A, #8FA1B3, argb:00BF616A, argb:00BF616A, #BF616A
 rofi.separator-style: none
